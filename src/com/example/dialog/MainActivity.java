@@ -82,7 +82,8 @@ public class MainActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which) {
 				if(which == 0){
 					AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-					builder.setTitle("Edit Name");
+					builder.setTitle("Edit Name")
+						   .setMessage("YOU CAN CHOSES");
 					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -97,9 +98,12 @@ public class MainActivity extends Activity {
 						
 					}
 				});
+				builder.show();
+				}// end if 1
+				
+				if(which == 0){
 					
-				}
-				// end if 1
+				}// end if 2
 				
 			}
 		}); 
