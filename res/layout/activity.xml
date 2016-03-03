@@ -34,4 +34,13 @@
         android:layout_y="243dp"
         android:text="Show Input Dialog" />
 
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="114dp"
+        android:layout_y="314dp"
+        android:text="Show Toast" />
+
 </AbsoluteLayout>

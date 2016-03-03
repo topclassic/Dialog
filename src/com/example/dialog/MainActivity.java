@@ -9,12 +9,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	private static final String[] format = {"Edit Name","Delete Outlet"};
 	TextView show;
 	Button select;
-	private Button button;
+	private Button button, button1;
 	int limit;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,19 @@ public class MainActivity extends Activity {
 				listDialog();
 			}
 		});
+        
+        button1 = (Button) findViewById(R.id.button1);
+        button1.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				showToast(view);
+			}
+		});
+        
+	}
+	private void showToast(View view){
+		Toast.makeText(this, "Not Outlet", Toast.LENGTH_LONG).show();
 	}
 	
 	// numberPicker Dialog
