@@ -2,7 +2,9 @@ package com.example.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -48,6 +50,8 @@ public class MainActivity extends Activity {
 				showToast(view);
 			}
 		});
+        
+        alertDialog();
         
 	}
 	private void showToast(View view){
@@ -122,6 +126,14 @@ public class MainActivity extends Activity {
 			}
 		}); 
         builder.show();
+	}
+	
+	private void alertDialog(){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Not Outlet")		
+			   .setMessage("Plaese connect outlet")
+			   .setIcon(R.drawable.ic_launcher);
+		builder.show();
 	}
 		
 }
