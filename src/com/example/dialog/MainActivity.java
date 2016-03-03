@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnClickListener{
+public class MainActivity extends Activity {
+	private static final String[] format = {"Edit Name","Delete Outlet"};
 	TextView show;
 	Button select;
+	private Button button;
 	int limit;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +23,24 @@ public class MainActivity extends Activity implements OnClickListener{
         
         show = (TextView) findViewById(R.id.show);
         select = (Button) findViewById(R.id.select);
-        select.setOnClickListener(this);
-	}
+        select.setOnClickListener(new OnClickListener() {		
+			@Override
+			public void onClick(View v) {
+				numberPicker();	
+			}
+		});
+        
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new OnClickListener() {
 
-	@Override
-	public void onClick(View v) {
-		numberPicker();		
+			@Override
+			public void onClick(View view) {
+				listDialog();
+			}
+		});
 	}
+	
+	// numberPicker Dialog
 	private void numberPicker(){
 		NumberPicker picker = new NumberPicker(this);
 		picker.setMaxValue(20000);
@@ -58,4 +71,39 @@ public class MainActivity extends Activity implements OnClickListener{
 		});
 		builder.show();
 	}
+	// end numberPicker Dialog
+	
+	// listDialog
+	private void listDialog(){
+		AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Edit Name, Delete Outlet");
+        builder.setItems(format, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				if(which == 0){
+					AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+					builder.setTitle("Edit Name");
+					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+							
+					}
+				});
+					builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						
+						
+						
+					}
+				});
+					
+				}
+				// end if 1
+				
+			}
+		}); 
+        builder.show();
+	}
+		
 }

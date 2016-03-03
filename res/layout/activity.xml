@@ -20,4 +20,18 @@
         android:layout_y="94dp"
         android:text="Button" />
 
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="78dp"
+        android:layout_y="243dp"
+        android:text="Show Input Dialog" />
+
 </AbsoluteLayout>
