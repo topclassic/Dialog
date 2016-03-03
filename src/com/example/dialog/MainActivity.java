@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	private static final String[] format = {"Edit Name","Delete Outlet"};
 	TextView show;
+	EditText showinput;
 	Button select;
 	private Button button, button1;
 	int limit;
@@ -26,6 +28,8 @@ public class MainActivity extends Activity {
         
         show = (TextView) findViewById(R.id.show);
         select = (Button) findViewById(R.id.select);
+        
+        
         select.setOnClickListener(new OnClickListener() {		
 			@Override
 			public void onClick(View v) {
@@ -93,7 +97,8 @@ public class MainActivity extends Activity {
 	
 	// listDialog
 	private void listDialog(){
-		AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+		AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);	
+		showinput = new EditText(this);
         builder.setTitle("Edit Name, Delete Outlet");
         builder.setItems(format, new DialogInterface.OnClickListener() {
 			@Override
@@ -101,10 +106,14 @@ public class MainActivity extends Activity {
 				if(which == 0){
 					AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 					builder.setTitle("Edit Name")
-						   .setMessage("YOU CAN CHOSES");
+						   .setMessage("YOU CAN CHOSES")
+						   .setView(showinput);
+							
 					builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
+						String txt = showinput.getText().toString();
+						Toast.makeText(getApplicationContext(), txt, Toast.LENGTH_LONG).show();
 							
 					}
 				});
@@ -113,13 +122,12 @@ public class MainActivity extends Activity {
 					public void onClick(DialogInterface dialog, int which) {
 						
 						
-						
 					}
 				});
 				builder.show();
 				}// end if 1
 				
-				if(which == 0){
+				if(which == 1){
 					
 				}// end if 2
 				
